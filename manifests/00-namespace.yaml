@@ -1,0 +1,5 @@
+# Namespace for the demo (the PVC and Pod live here)
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: storage

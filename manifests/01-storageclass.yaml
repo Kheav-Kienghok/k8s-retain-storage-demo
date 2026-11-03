@@ -1,0 +1,9 @@
+# StorageClass: local-path provisioner, but the PV is kept after the PVC is deleted
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: retain-storage
+provisioner: rancher.io/local-path
+reclaimPolicy: Retain
+# Wait for a Pod to be scheduled so the volume is created on the right node
+volumeBindingMode: WaitForFirstConsumer

@@ -1,0 +1,13 @@
+# 1Gi claim using the Retain StorageClass (stays Pending until the Pod starts)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-pvc
+  namespace: storage
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: retain-storage

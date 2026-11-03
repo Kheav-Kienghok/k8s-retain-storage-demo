@@ -1,0 +1,17 @@
+# Test Pod: mounts the PVC at /data
+apiVersion: v1
+kind: Pod
+metadata:
+  name: writer
+  namespace: storage
+spec:
+  containers:
+    - name: app
+      image: nginx:alpine
+      volumeMounts:
+        - name: data
+          mountPath: /data
+  volumes:
+    - name: data
+      persistentVolumeClaim:
+        claimName: data-pvc
